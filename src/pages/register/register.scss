@@ -1,0 +1,28 @@
+page-register {
+    .errorMsg{
+        font-weight: bold;
+        color: red !important;
+    }
+
+    .registerWrapper{
+        padding: 20px;
+    }
+
+    .inputBox{
+        margin: 10px;
+        border: 1px solid map-get($colors, primary) !important;
+        border-radius: 10px;
+    }
+
+    .submitBtn{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15%;
+        display: block;
+        background: transparent;
+        width: 30%;
+        border-radius: 5px;
+        border: 2px solid map-get($colors, primary);
+        color: map-get($colors, primary);
+    }
+}

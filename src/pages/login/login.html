@@ -6,10 +6,6 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
-    <ion-title>Login</ion-title>
-  </ion-navbar>
-
 </ion-header>
 
 
@@ -21,15 +17,18 @@
     <form>
       <ion-list>
         <ion-item no-line>
-          <ion-input placeholder="Your email" type="text" name="email" ></ion-input>
+          <ion-icon item-start name="person"></ion-icon>
+          <ion-input placeholder="Your email" type="text" name="email" >
+          </ion-input>
         </ion-item>
         <ion-item no-line>
+          <ion-icon item-start name="lock"></ion-icon>
           <ion-input placeholder="Password" type="password" name="password" ></ion-input>
         </ion-item>
       </ion-list>
 
-      <button ion-button type="submit" class="button">Login</button>
-      <button type="button" class="register-button">Don't have an account? Sign up</button>
+      <button ion-button type="submit" class="button" (click)="doLogin()">Login</button>
+      <button type="button" (click)="registerButtonPress()" class="register-button">Don't have an account? Sign up</button>
 
     </form>
   </div>

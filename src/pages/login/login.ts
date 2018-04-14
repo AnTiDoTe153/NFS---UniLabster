@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { NativeKeyboard } from '@ionic-native/native-keyboard';
+import { RegisterPage } from '../register/register';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the LoginPage page.
@@ -15,6 +18,15 @@ import { NavController, NavParams } from 'ionic-angular';
 export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
+  }
+
+  registerButtonPress(){
+    this.navCtrl.setRoot(RegisterPage);
+  }
+
+  doLogin(){
+    this.navCtrl.setRoot(HomePage);
   }
 
 

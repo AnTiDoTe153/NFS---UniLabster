@@ -1,7 +1,5 @@
 page-login {
     .loginWrapper{
-        position: relative;
-        top: 0%;
         padding: 20px;
     }
 
@@ -17,20 +15,19 @@ page-login {
     }
 
     .logo{
-        display: block;
-        position: relative;
-        top: 0%;
         width: 50%;
         height: 50%;
+        display: block;
+        margin-top: 5%;
         margin-left: auto;
         margin-right: auto;
         background: transparent;
     }
 
     .button{
-        display: block;
         margin-left: auto;
         margin-right: auto;
+        display: block;
         background: transparent;
         border-radius: 5px;
         border: 2px solid map-get($colors, primary);
@@ -41,10 +38,9 @@ page-login {
         color: map-get($colors, primary);
         text-decoration: underline;
         background: transparent;
-        position: relative;
-        bottom:-40px;
-        display: block;
+        margin-top: 10%;
         font-size: 12px;
+        display: block;
         margin-left: auto;
         margin-right: auto;
         cursor: pointer;
