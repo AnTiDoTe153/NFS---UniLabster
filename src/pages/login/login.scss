@@ -1,0 +1,54 @@
+page-login {
+    .loginWrapper{
+        position: relative;
+        top: 0%;
+        padding: 20px;
+    }
+
+    ion-label{
+        color: map-get($colors, primary);;
+    }
+    
+    ion-item{
+        padding-left: 20px !important;
+        margin-bottom: 10px;
+        border: 0px !important;
+        box-shadow: none !important;
+    }
+
+    .logo{
+        display: block;
+        position: relative;
+        top: 0%;
+        width: 50%;
+        height: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        background: transparent;
+    }
+
+    .button{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background: transparent;
+        border-radius: 5px;
+        border: 2px solid map-get($colors, primary);
+        color: map-get($colors, primary);
+    }
+
+    .register-button{
+        color: map-get($colors, primary);
+        text-decoration: underline;
+        background: transparent;
+        position: relative;
+        bottom:-40px;
+        display: block;
+        font-size: 12px;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+    }
+
+    .item-input.ng-valid.input-has-value::after{ border-bottom-color: transparent; }
+}
