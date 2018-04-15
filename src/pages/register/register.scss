@@ -8,9 +8,16 @@ page-register {
         padding: 20px;
     }
 
+    ion-item-divider{
+        background: transparent !important; 
+        margin-top: 10px;
+    }
+
+
+
     .inputBox{
         margin: 10px;
-        border: 1px solid map-get($colors, primary) !important;
+        background: #aaaaaa;
         border-radius: 10px;
     }
 

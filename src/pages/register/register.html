@@ -15,83 +15,96 @@
 
 <ion-content padding>
   <div class="registerWrapper">
-    <ion-list no-lines>
+    <ion-list>
       <form [formGroup]="registerForm" (ngSubmit)="doRegister()">
+
+        <ion-item-divider>
+          <ion-icon item-start name="person"></ion-icon>
+          {{ "User info" }}
+        </ion-item-divider>
 
         <ion-item *ngIf="!registerForm.controls.name.valid  && submitAttempt">
           <p small class="errorMsg">Name is not valid!</p>
         </ion-item>
-        <ion-item class="inputBox">
-          <ion-label>Name:</ion-label>
-          <ion-input [(ngModel)]="user.name" name="name" formControlName="name" type="text"></ion-input>
+        <ion-item>
+          <ion-input placeholder="Name" [(ngModel)]="user.name" name="name" formControlName="name" type="text"></ion-input>
         </ion-item>
 
         <ion-item *ngIf="!registerForm.controls.surname.valid  && submitAttempt">
-            <p small class="errorMsg">Surname is not valid!</p>
-          </ion-item>
-          <ion-item class="inputBox">
-            <ion-label>Surname:</ion-label>
-            <ion-input [(ngModel)]="user.surname" name="surname" formControlName="surname" type="text"></ion-input>
-          </ion-item>
+          <p small class="errorMsg">Surname is not valid!</p>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Surname" [(ngModel)]="user.surname" name="surname" formControlName="surname" type="text"></ion-input>
+        </ion-item>
 
-        <ion-item *ngIf="!registerForm.controls.password.valid  && submitAttempt">
-            <p small class="errorMsg">Password is not valid!</p>
-          </ion-item>
-          <ion-item class="inputBox">
-              <ion-label>Password:</ion-label>
-            <ion-input [(ngModel)]="user.password" formControlName="password" type="password"></ion-input>
-          </ion-item>
+        <ion-item-divider>
+          <ion-icon item-start name="mail"></ion-icon>
+          {{ "Contact info" }}
+        </ion-item-divider>
 
         <ion-item *ngIf="!registerForm.controls.email.valid  && submitAttempt">
           <p small class="errorMsg">Email is not valid!</p>
         </ion-item>
-        <ion-item class="inputBox">
-            <ion-label>Email:</ion-label>
-          <ion-input [(ngModel)]="user.email" formControlName="email" type="text"></ion-input>
+        <ion-item>
+          <ion-input placeholder="Email" [(ngModel)]="user.email" formControlName="email" type="text"></ion-input>
         </ion-item>
 
-        <ion-item class="inputBox">
-            <ion-label item-start>Year:</ion-label>
-            <ion-select item-start style="margin: 0px !important; padding: 0px !important;" [(ngModel)]="user.year" formControlName="year" okText="Okay" cancelText="Dismiss">
-                <ion-option value="1">First</ion-option>
-                <ion-option value="2">Second</ion-option>
-                <ion-option value="3">Third</ion-option>
-                <ion-option value="4">Fourth</ion-option>
-              </ion-select>
+        <ion-item *ngIf="!registerForm.controls.phoneNumber.valid  && submitAttempt">
+          <p small class="errorMsg">Phone number is not valid!</p>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Phone" [(ngModel)]="user.phoneNumber" formControlName="phoneNumber" type="number"></ion-input>
         </ion-item>
 
-        <ion-item class="inputBox">
-            <ion-label item-start style="width: 2px !important;">Department:</ion-label>
-            <ion-select item-start style="margin: 0px !important; padding: 0px !important;" [(ngModel)]="user.department" formControlName="department" okText="Okay" cancelText="Dismiss">
-                <ion-option value="cti">CTI</ion-option>
-                <ion-option value="cti-en">CTI-EN</ion-option>
-                <ion-option value="is">IS</ion-option>
-                <ion-option value="info">INFO</ion-option>
-            </ion-select>
+        <ion-item-divider>
+          <ion-icon item-start name="lock"></ion-icon>
+          {{ "Password" }}
+        </ion-item-divider>
+
+        <ion-item *ngIf="!registerForm.controls.password.valid  && submitAttempt">
+          <p small class="errorMsg">Password is not valid!</p>
         </ion-item>
+        <ion-item>
+          <ion-input placeholder="Password" [(ngModel)]="user.password" formControlName="password" type="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input placeholder="Confirm password" type="password"></ion-input>
+        </ion-item>
+
+        <ion-item-divider>
+          <ion-icon item-start name="paper"></ion-icon>
+          {{ "University info" }}
+        </ion-item-divider>
+
+
+        <ion-item>
+            <ion-label item-start>Department</ion-label>
+            <ion-input formControlName="department" [(ngModel)]="user.department">
+              </ion-input>
+        </ion-item>
+
+        <ion-item >
+          <ion-label item-start>Year</ion-label>
+          <ion-input formControlName="year" [(ngModel)]="user.year" type="number">
+          </ion-input>
+        </ion-item>
+
 
         <ion-item *ngIf="!registerForm.controls.group.valid  && submitAttempt">
           <p small class="errorMsg">Group is not valid!</p>
         </ion-item>
-        <ion-item class="inputBox">
-            <ion-label>Group</ion-label>
+        <ion-item>
+          <ion-label>Group</ion-label>
           <ion-input [(ngModel)]="user.group" formControlName="group" type="number"></ion-input>
         </ion-item>
 
         <ion-item *ngIf="!registerForm.controls.subgroup.valid  && submitAttempt">
           <p small class="errorMsg">Subgroup is not valid!</p>
         </ion-item>
-        <ion-item class="inputBox">
-            <ion-label>Subgroup</ion-label>
+        <ion-item>
+          <ion-label>Subgroup</ion-label>
           <ion-input [(ngModel)]="user.subgroup" formControlName="subgroup" type="number"></ion-input>
-        </ion-item>
-
-        <ion-item *ngIf="!registerForm.controls.phoneNumber.valid  && submitAttempt">
-          <p small class="errorMsg">Phone number is not valid!</p>
-        </ion-item>
-        <ion-item class="inputBox">
-            <ion-label>Phone number</ion-label>
-          <ion-input [(ngModel)]="user.phoneNumber" formControlName="phoneNumber" type="text"></ion-input>
         </ion-item>
 
         <button ion-button color="button" block type="submit" class="submitBtn">Register</button>

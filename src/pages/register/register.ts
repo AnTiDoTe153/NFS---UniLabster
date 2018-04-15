@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { HomePage } from '../home/home'; 
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the RegisterPage page.
@@ -30,7 +31,7 @@ export class RegisterPage {
     id: ""
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+  constructor(public alertController: AlertController, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group({
       name: ['',  Validators.compose([Validators.pattern('[a-zA-Z]*'), Validators.required])],
       surname: ['',  Validators.compose([Validators.pattern('[a-zA-Z]*'), Validators.required])],
@@ -49,6 +50,40 @@ export class RegisterPage {
 
   doRegister(){
     this.navCtrl.setRoot(HomePage);
+  }
+
+  showYearAlert(){
+    var alert = this.alertController.create();
+
+    alert.addInput({
+      type: 'radio',
+      label: 'First year',
+      value: 'First year'
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Second year',
+      value: 'Second year'
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Third year',
+      value: 'Thid year'
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Fourth year',
+      value: 'Fourth year'
+    });
+
+    alert.addButton({text: "Ok", handler:(data) =>{
+      this.user.year = data;
+    }})
+
+    alert.addButton("Dismiss");
   }
 
 
