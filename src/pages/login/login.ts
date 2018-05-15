@@ -23,6 +23,7 @@ export class LoginPage {
 
   registerButtonPress(){
     this.navCtrl.setRoot(RegisterPage);
+
   }
 
   doLogin(){

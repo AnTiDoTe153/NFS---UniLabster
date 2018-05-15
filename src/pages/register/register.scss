@@ -13,7 +13,15 @@ page-register {
         margin-top: 10px;
     }
 
-
+    ion-slide.swiper-slide {
+        align-items: flex-start;
+    }
+    ion-item-divider{
+        text-align: left;
+    }
+    ion-select{
+        max-width: 60% !important;
+    }
 
     .inputBox{
         margin: 10px;

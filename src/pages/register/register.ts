@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { HomePage } from '../home/home'; 
 import { AlertController } from 'ionic-angular';
+import { ViewChild } from '@angular/core';
+import { Slides } from 'ionic-angular';
 
 /**
  * Generated class for the RegisterPage page.
@@ -16,7 +18,9 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  private registerForm: FormGroup;
+  @ViewChild(Slides) slides: Slides;
+  private registerForm1: FormGroup;
+  private registerForm2: FormGroup;
   private submitAttempt: boolean = false;
   private user: any = {
     name: "",
@@ -32,21 +36,33 @@ export class RegisterPage {
   };
 
   constructor(public alertController: AlertController, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
-    this.registerForm = this.formBuilder.group({
+    
+    this.registerForm1 = this.formBuilder.group({
       name: ['',  Validators.compose([Validators.pattern('[a-zA-Z]*'), Validators.required])],
       surname: ['',  Validators.compose([Validators.pattern('[a-zA-Z]*'), Validators.required])],
-      password: ['',  Validators.compose([Validators.pattern('[a-zA-Z0-9]*'), Validators.required])],
-      email: ['', Validators.compose([Validators.pattern('[a-zA-Z@.]*'), Validators.required])],
+      password: ['',  Validators.compose([Validators.pattern('[a-zA-Z0-9]*'), Validators.required])]
+    });
+
+    this.registerForm2 = this.formBuilder.group({
       year: [''],
       department: [''],
+      email: ['', Validators.compose([Validators.pattern('[a-zA-Z@.]*'), Validators.required])],
+      phoneNumber: ['', Validators.compose([Validators.pattern('[0-9]*'), Validators.required])],
       group: ['', Validators.compose([Validators.pattern('[1-8]'), Validators.required])],
       subgroup: ['', Validators.compose([Validators.pattern('[1-5]*'), Validators.required])],
-      phoneNumber: ['', Validators.compose([Validators.pattern('[0-9]*'), Validators.required])]
     });
   }
 
   ionViewDidLoad() {
+    this.slides.lockSwipes(true);
   }
+
+  goToNextSlide(){
+    this.slides.lockSwipes(false);
+    this.slides.slideNext();
+    this.slides.lockSwipes(true);
+  }
+
 
   doRegister(){
     this.navCtrl.setRoot(HomePage);
