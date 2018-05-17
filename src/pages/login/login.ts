@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { NativeKeyboard } from '@ionic-native/native-keyboard';
 import { RegisterPage } from '../register/register';
-import { HomePage } from '../home/home';
+import { DashboardPage } from '../dashboard/dashboard';
 
 /**
  * Generated class for the LoginPage page.
@@ -27,7 +27,7 @@ export class LoginPage {
   }
 
   doLogin(){
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(DashboardPage);
   }
 
 

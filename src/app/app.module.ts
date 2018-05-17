@@ -3,11 +3,11 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { HttpModule } from '@angular/http';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,15 +15,16 @@ import { RequestProvider } from '../providers/request/request';
 import { NativeKeyboard } from '@ionic-native/native-keyboard';
 import { AlertController } from 'ionic-angular';
 import { CourseProvider } from '../providers/course/course';
+import { DetailsPage } from '../pages/details/details';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage,
+    DashboardPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -33,10 +34,10 @@ import { CourseProvider } from '../providers/course/course';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
+    DashboardPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,

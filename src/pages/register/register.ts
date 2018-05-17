@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { HomePage } from '../home/home'; 
+import { DetailsPage } from '../details/details'; 
 import { AlertController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
@@ -122,7 +122,7 @@ export class RegisterPage {
 
       alert.present();
     }else{
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(DetailsPage);
     }
   }
 
