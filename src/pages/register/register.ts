@@ -5,6 +5,8 @@ import { HomePage } from '../home/home';
 import { AlertController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
+import { Course } from '../../models/Course';
+import { CourseProvider } from '../../providers/course/course';
 
 /**
  * Generated class for the RegisterPage page.
@@ -22,6 +24,8 @@ export class RegisterPage {
   private registerForm1: FormGroup;
   private registerForm2: FormGroup;
   private submitAttempt: boolean = false;
+  private maxNumberOfCourses: number = 2;
+  private secondPassword: string;
   private user: any = {
     name: "",
     surname: "",
@@ -35,7 +39,10 @@ export class RegisterPage {
     id: ""
   };
 
-  constructor(public alertController: AlertController, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+  private courseList: Array<Course>;
+  private selectedCourses: Array<Course> = [];
+
+  constructor(private courseProvider: CourseProvider, public alertController: AlertController, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
     
     this.registerForm1 = this.formBuilder.group({
       name: ['',  Validators.compose([Validators.pattern('[a-zA-Z]*'), Validators.required])],
@@ -63,9 +70,60 @@ export class RegisterPage {
     this.slides.lockSwipes(true);
   }
 
+  highlightItem(item){
+    return this.selectedCourses.indexOf(item) > -1;
+  }
+
+  goToCourseList(){
+    if(this.user.year == "" || this.user.department == "" || this.user.group == "" || this.user.subgroup == "" || this.user.email == "" || this.user.number == ""){
+      this.showErrorAlert("You must fill in all fields");
+    }else{
+      this.courseList = this.courseProvider.getCoursesForYear(this.user.year, this.user.department);
+      this.goToNextSlide();
+    }
+  }
+
+  goToUniversitySlide(){
+    if(this.user.name == "" || this.user.surname == "" || this.user.password == ""){
+      this.showErrorAlert("You must fill in all fields");
+    }else if(this.user.password != this.secondPassword){
+      this.showErrorAlert("Passwords don't match");
+    }else{
+      this.goToNextSlide();
+    }
+  }
+
+  showErrorAlert(errorMessage: string){
+    var alert = this.alertController.create();
+    alert.setTitle("Error");
+    alert.setMessage(errorMessage);
+    alert.addButton("Ok");
+    alert.present();
+  }
+
+  selectCourse(item){
+    var index = this.selectedCourses.indexOf(item)
+    if(index > -1){
+      this.selectedCourses.splice(index, 1);
+    }else{
+      if(this.selectedCourses.length < this.maxNumberOfCourses){
+        this.selectedCourses.push(item);
+      }
+    }
+  }
+
 
   doRegister(){
-    this.navCtrl.setRoot(HomePage);
+    if(this.selectedCourses.length < this.maxNumberOfCourses){
+      var alert = this.alertController.create();
+      alert.setTitle("Error");
+      alert.setMessage("You must choose at exactly " + this.maxNumberOfCourses + " courses in order to register the account");
+      alert.addButton("Ok");
+
+      alert.present();
+    }else{
+      this.navCtrl.setRoot(HomePage);
+    }
   }
 
   showYearAlert(){

@@ -7,12 +7,14 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { HttpModule } from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RequestProvider } from '../providers/request/request';
 import { NativeKeyboard } from '@ionic-native/native-keyboard';
 import { AlertController } from 'ionic-angular';
+import { CourseProvider } from '../providers/course/course';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { AlertController } from 'ionic-angular';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp, { scrollAssist: false, autoFocusAssist: false }),
   ],
   bootstrap: [IonicApp],
@@ -41,7 +44,8 @@ import { AlertController } from 'ionic-angular';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RequestProvider,
     NativeKeyboard,
-    AlertController
+    AlertController,
+    CourseProvider
   ]
 })
 export class AppModule {}

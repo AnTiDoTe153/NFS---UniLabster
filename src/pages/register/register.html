@@ -22,7 +22,7 @@
 
       <div class="registerWrapper">
         <ion-list>
-          <form [formGroup]="registerForm1" (ngSubmit)="goToNextSlide()">
+          <form [formGroup]="registerForm1" (ngSubmit)="goToUniversitySlide()">
 
             <ion-item-divider>
               <ion-icon item-start name="person"></ion-icon>
@@ -56,7 +56,7 @@
             </ion-item>
 
             <ion-item>
-              <ion-input placeholder="Confirm password" type="password"></ion-input>
+              <ion-input placeholder="Confirm password"  [(ngModel)]="secondPassword" formControlName="password" type="password"></ion-input>
             </ion-item>
 
 
@@ -71,7 +71,7 @@
     <ion-slide>
       <div class="registerWrapper">
         <ion-list>
-          <form [formGroup]="registerForm2" (ngSubmit)="doRegister()">
+          <form [formGroup]="registerForm2" (ngSubmit)="goToCourseList()">
 
             <ion-item-divider>
               <ion-icon item-start name="mail"></ion-icon>
@@ -145,11 +145,27 @@
               </ion-select>
             </ion-item>
 
-            <button ion-button color="button" block type="submit" class="submitBtn" (click)="goToNextSlide()">Next</button>
+            <button ion-button color="button" type="submit" block class="submitBtn">Next</button>
           </form>
 
         </ion-list>
       </div>
+    </ion-slide>
+
+    <ion-slide>
+          <h2>Choose 2 of the following courses:</h2>
+          <ion-card [ngClass]="{selected:highlightItem(item)}" *ngFor="let item of courseList" (click)="selectCourse(item)">
+            <ion-card-header style="background: #cccccc">
+                {{item.name}}
+            </ion-card-header>
+
+            <ion-card-content>
+                <p>Teacher: {{item.teacher}}</p>
+                <p>Description: {{item.description}}</p>
+            </ion-card-content>
+          </ion-card>
+
+          <button ion-button color="button" block class="submitBtn" (click)="doRegister()">Register</button>
     </ion-slide>
 
   </ion-slides>
