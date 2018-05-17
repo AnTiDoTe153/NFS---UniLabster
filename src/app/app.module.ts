@@ -16,6 +16,8 @@ import { NativeKeyboard } from '@ionic-native/native-keyboard';
 import { AlertController } from 'ionic-angular';
 import { CourseProvider } from '../providers/course/course';
 import { DetailsPage } from '../pages/details/details';
+import { StudentProvider } from '../providers/student/student';
+import { LoginProvider } from '../providers/login/login';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { DetailsPage } from '../pages/details/details';
     RequestProvider,
     NativeKeyboard,
     AlertController,
-    CourseProvider
+    CourseProvider,
+    StudentProvider,
+    LoginProvider
   ]
 })
 export class AppModule {}

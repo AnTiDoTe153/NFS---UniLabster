@@ -18,12 +18,12 @@
       <ion-list>
         <ion-item no-line>
           <ion-icon item-start name="person"></ion-icon>
-          <ion-input placeholder="Your email" type="text" name="email" >
+          <ion-input placeholder="Your email"  [(ngModel)]="username" type="text" name="email" >
           </ion-input>
         </ion-item>
         <ion-item no-line>
           <ion-icon item-start name="lock"></ion-icon>
-          <ion-input placeholder="Password" type="password" name="password" ></ion-input>
+          <ion-input placeholder="Password" [(ngModel)]="password" type="password" name="password" ></ion-input>
         </ion-item>
       </ion-list>
 

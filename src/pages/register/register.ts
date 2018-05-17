@@ -7,6 +7,7 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { Course } from '../../models/Course';
 import { CourseProvider } from '../../providers/course/course';
+import { DashboardPage } from '../dashboard/dashboard';
 
 /**
  * Generated class for the RegisterPage page.
@@ -122,7 +123,7 @@ export class RegisterPage {
 
       alert.present();
     }else{
-      this.navCtrl.setRoot(DetailsPage);
+      this.navCtrl.setRoot(DashboardPage);
     }
   }
 

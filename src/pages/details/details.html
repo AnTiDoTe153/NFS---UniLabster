@@ -17,5 +17,16 @@
 
 
 <ion-content padding>
-
+  <ion-card *ngIf="currentStudent != null">
+    <ion-card-header>
+      Student info
+    </ion-card-header>
+    <ion-card-content>
+      <p>Name: {{currentStudent.name}}</p>
+      <p>Surname: {{currentStudent.surname}}</p>
+      <p>Email: {{currentStudent.email}}</p>
+      <p>Phone: {{currentStudent.phone}}</p>
+      <p>Year: {{currentStudent.year}}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
