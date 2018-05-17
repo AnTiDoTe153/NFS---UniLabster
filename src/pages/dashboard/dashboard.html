@@ -17,5 +17,20 @@
 
 
 <ion-content padding>
+    <img src="assets\\imgs\\education-header.jpg" class="header">
 
+
+    <ion-list no-lines>
+      <ion-item [style.background]="getItemBackground(item)" *ngFor="let item of courseList">
+        <div class="itemDetails">
+            <p class="itemTitle">{{item.name}}</p>
+            <p class="itemSubTitle">{{item.teacher}}</p>
+        </div>
+        <div class="itemTime">
+            <p>Tuesday</p>
+            <p>10:00 - 12:00</p>
+        </div>
+      </ion-item>
+
+    </ion-list>
 </ion-content>

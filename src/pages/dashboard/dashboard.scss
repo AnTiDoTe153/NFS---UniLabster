@@ -1,3 +1,46 @@
 page-dashboard {
 
+.header{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-left: 0;
+    
+    width: 100%;
+    height: 30%;
+}
+
+.ion-item{
+   padding: 3px !important;
+   margin: 0px !important; 
+}
+
+.itemTitle{
+    font-weight: bold;
+    font-size: 15px;
+    color: black;
+}
+
+.itemSubTitle{
+    font-weight: bold;
+    font-size: 11px !important;
+    color: map-get($colors, primary);
+}
+
+.itemDetails{
+    float: left;
+}
+
+.itemTime{
+    float: right;
+    text-align: center;
+}
+
+ion-list{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+}
+
 }
