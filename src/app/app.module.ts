@@ -7,6 +7,7 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { HttpModule } from '@angular/http';
+import { ModalController } from 'ionic-angular';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,6 +19,7 @@ import { CourseProvider } from '../providers/course/course';
 import { DetailsPage } from '../pages/details/details';
 import { StudentProvider } from '../providers/student/student';
 import { LoginProvider } from '../providers/login/login';
+import { StudentModalPage } from '../pages/student-modal/student-modal';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { LoginProvider } from '../providers/login/login';
     DashboardPage,
     LoginPage,
     RegisterPage,
-    DetailsPage
+    DetailsPage,
+    StudentModalPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { LoginProvider } from '../providers/login/login';
     DashboardPage,
     LoginPage,
     RegisterPage,
-    DetailsPage
+    DetailsPage,
+    StudentModalPage
   ],
   providers: [
     StatusBar,
@@ -50,7 +54,9 @@ import { LoginProvider } from '../providers/login/login';
     AlertController,
     CourseProvider,
     StudentProvider,
-    LoginProvider
+    LoginProvider,
+    StudentModalPage,
+    ModalController
   ]
 })
 export class AppModule {}

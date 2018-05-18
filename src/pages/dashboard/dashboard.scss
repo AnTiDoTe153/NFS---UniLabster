@@ -11,10 +11,6 @@ page-dashboard {
     height: 30%;
 }
 
-.ion-item{
-   padding: 3px !important;
-   margin: 0px !important; 
-}
 
 .itemTitle{
     font-weight: bold;
@@ -28,13 +24,36 @@ page-dashboard {
     color: map-get($colors, primary);
 }
 
-.itemDetails{
+.itemHeader{
     float: left;
+    display: fixed;
+}
+
+.smallButton{
+    height: 20px !important;
+    font-size: 15px;
+    color: black;
+    border-radius: 3px;
+    background: transparent;
+    border-radius: 5px;
+    border: 2px solid map-get($colors, primary);
+    color: map-get($colors, primary);
+    margin-left: 5px;
+}
+
+
+.itemDescription{
+    padding-left: 10px !important;
+    margin: 0px !important;
 }
 
 .itemTime{
     float: right;
     text-align: center;
+}
+
+.selected{
+    border-left: solid 4px map-get($colors, primary);
 }
 
 ion-list{

@@ -16,21 +16,28 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content  overflow-scroll="false" padding>
     <img src="assets\\imgs\\education-header.jpg" class="header">
 
 
     <ion-list no-lines>
-      <ion-item [style.background]="getItemBackground(item)" *ngFor="let item of courseList">
-        <div class="itemDetails">
-            <p class="itemTitle">{{item.name}}</p>
-            <p class="itemSubTitle">{{item.teacher}}</p>
-        </div>
-        <div class="itemTime">
-            <p>Tuesday</p>
-            <p>10:00 - 12:00</p>
-        </div>
-      </ion-item>
+
+      <div [ngClass]="{selected:itemIsSelected(item)}" *ngFor="let item of courseList">
+          <ion-item [style.background]="getItemBackground(item)" class="selected" (click)="selectItem(item)">
+              <div class="itemHeader">
+                  <p class="itemTitle">{{item.name}} <span *ngIf="isAttending(item)">(going)</span></p>
+                  <p class="itemSubTitle">{{item.teacher}}</p>
+              </div>
+              <div class="itemTime">
+                  <p>Tuesday</p>
+                  <p>10:00 - 12:00</p>
+              </div>
+            </ion-item>
+            <ion-item  class="itemDescription" [style.background]="getItemBackground(item)" *ngIf="itemIsSelected(item)">
+              <button class="smallButton" [style.border-color]="getAttendButtonBackground(item)" [style.color]="getAttendButtonBackground(item)" (click)="attendCourse(item)" [innerHTML]="getAttendButtonText(item)"></button>
+              <button class="smallButton" (click)="showAttendingStudents(item)">attendances</button>
+            </ion-item>
+      </div>
 
     </ion-list>
 </ion-content>

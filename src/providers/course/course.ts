@@ -19,29 +19,60 @@ export class CourseProvider {
     var courseList: Array<Course>;
 
     courseList = [{
-      teacher: "Minea",
+      teacher: "Marius Minea",
       name: "Logica si Structuri Discrete",
       year: 1,
-      description: "Aici se studiaza logica",
+      description: "Logica aplicata folosind ocaml",
       department: "CTI"
     },
     {
-      teacher: "Ciocarlie",
+      teacher: "Horia Ciocarlie",
       name: "Programarea calculatoarelor",
       year: 1,
-      description: "Inveti sa conduci trenu",
+      description: "Bazele programarii in C",
       department: "CTI"
     },
     {
-      teacher: "Petrisor",
-      name: "Matematica lu peste",
+      teacher: "Emilia Petrisor",
+      name: "Algebra",
       year: 1,
-      description: "Aici faci mancare de peste",
+      description: "Elemente de algebra si geometrie",
       department: "CTI"
     }];
 
     return courseList;
 
+  }
+
+  getCourseAttendanceForStudent(userId: string){
+    var courseList: Array<Course>;
+
+    courseList = [{
+      teacher: "Marius Minea",
+      name: "Logica si Structuri Discrete",
+      year: 1,
+      description: "Logica aplicata folosind ocaml",
+      department: "CTI"
+    },
+    {
+      teacher: "Emilia Petrisor",
+      name: "Algebra",
+      year: 1,
+      description: "Elemente de algebra si geometrie",
+      department: "CTI"
+    }];
+
+    return courseList;
+  }
+
+  addCourseToAttentding(course: Course){
+    //TO DO
+    return true;
+  }
+
+  removeCourseFromAttending(course: Course){
+    //TO DO
+    return true;
   }
 
 }
