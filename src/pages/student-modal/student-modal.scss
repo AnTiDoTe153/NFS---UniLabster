@@ -22,9 +22,11 @@ page-student-modal {
       }
 
       .errorMessage{
+          padding-top: 50%;
           font-weight: bold;
           font-size: 20px;
           color: black;
+          text-align: center;
       }
 
       .closeButton{

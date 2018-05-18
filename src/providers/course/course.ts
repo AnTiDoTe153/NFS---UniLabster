@@ -27,7 +27,7 @@ export class CourseProvider {
     },
     {
       teacher: "Horia Ciocarlie",
-      name: "Programarea calculatoarelor",
+      name: "Programare",
       year: 1,
       description: "Bazele programarii in C",
       department: "CTI"
